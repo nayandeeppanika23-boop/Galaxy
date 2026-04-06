@@ -4,16 +4,27 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  overflow: hidden;
+  overflow-x: hidden;
   background: black;
   font-family: Arial, sans-serif;
+  color: white;
 }
 
 canvas {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 0;
+}
+
+.hero {
+  height: 100vh;
+  position: relative;
 }
 
 .content {
@@ -22,19 +33,88 @@ canvas {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: white;
   z-index: 10;
 }
 
 h1 {
-  font-size: 80px;
+  font-size: 100px;
   letter-spacing: 10px;
-  text-shadow: 0 0 20px white;
-  animation: fadeIn 1.5s ease;
+  text-shadow: 0 0 30px white;
 }
 
 p {
   margin-top: 15px;
+  font-size: 20px;
+  color: #ccc;
+}
+
+button {
+  margin-top: 30px;
+  padding: 14px 35px;
+  border: 1px solid white;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 18px;
+}
+
+button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px white;
+}
+
+.universe {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 100px;
+  position: relative;
+  z-index: 10;
+}
+
+.universe h2 {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+.universe p {
+  font-size: 24px;
+}
+
+.glow {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255,255,255,0.12), transparent 70%);
+  pointer-events: none;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.ripple {
+  position: fixed;
+  border: 2px solid white;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: explode 0.8s ease-out forwards;
+}
+
+@keyframes explode {
+  from {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  to {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}  margin-top: 15px;
   font-size: 20px;
   color: #ccc;
 }
